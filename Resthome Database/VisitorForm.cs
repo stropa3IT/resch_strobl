@@ -149,6 +149,11 @@ namespace Resthome_Database
                     SqlDataReader dataReader = cmmd.ExecuteReader();
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
+                    //DataGridViewRow row = new DataGridViewRow();
+                    //row.CreateCells(dgvShowData);
+                    //row.Cells[0].Value = "";
+                    //row.Cells[1].Value = "";
+                    //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
                     dgvShowData.ReadOnly = false;
                     conn.Close();
@@ -166,9 +171,10 @@ namespace Resthome_Database
                     dgvShowData.DataSource = dt;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                //MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -200,20 +206,48 @@ namespace Resthome_Database
 
         private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (dgvShowData["one", e.RowIndex].Value == "not editable")
                 dgvShowData.Rows[e.RowIndex].ReadOnly = true;
             else
                 dgvShowData.Rows[e.RowIndex].ReadOnly = false;
         }
 
-        private void dgvShowData_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvShowData["one", e.RowIndex].Value == "not editable")
-                dgvShowData.Rows[e.RowIndex].ReadOnly = true;
-            else
-                dgvShowData.Rows[e.RowIndex].ReadOnly = false;
-        }
+        //void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        //{
+
+        //    if (dataGridView1.NewRowIndex == e.RowIndex)
+
+        //    {
+
+        //        dataGridView1.Rows[e.RowIndex].ReadOnly = false;
+
+        //    }
+
+        //    else
+
+        //    {
+
+        //        dataGridView1.Rows[e.RowIndex].ReadOnly = true;
+
+        //    }
+
+        //} 
+        //private void dgvShowData_RowEnter(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (dgvShowData["one", e.RowIndex].Value == "not editable")
+        //        dgvShowData.Rows[e.RowIndex].ReadOnly = true;
+        //    else
+        //        dgvShowData.Rows[e.RowIndex].ReadOnly = false;
+        //}
+
+        //private void myDataGridview_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        //{
+
+        //    myDataGridview.Rows[e.RowIndex].ReadOnly = false;
+        //    myDataGridview.FirstDisplayedScrollingRowIndex = e.RowIndex;
+
+        //}
     }
 }
 
