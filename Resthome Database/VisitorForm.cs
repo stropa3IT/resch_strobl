@@ -206,6 +206,14 @@ namespace Resthome_Database
             else
                 dgvShowData.Rows[e.RowIndex].ReadOnly = false;
         }
+
+        private void dgvShowData_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvShowData["one", e.RowIndex].Value == "not editable")
+                dgvShowData.Rows[e.RowIndex].ReadOnly = true;
+            else
+                dgvShowData.Rows[e.RowIndex].ReadOnly = false;
+        }
     }
 }
 
