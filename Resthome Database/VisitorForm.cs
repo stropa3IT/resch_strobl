@@ -156,8 +156,10 @@ namespace Resthome_Database
                     //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
                     DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
-                    row.Cells[0].Value = "XYZ";
-                    row.Cells[1].Value = 50.2;
+                    row.Cells[0].Value = "";
+                    row.Cells[1].Value = "";
+                    row.Cells[2].Value = "";
+                    row.Cells[3].Value = ""; 
                     dgvShowData.Rows.Add(row);
                     dgvShowData.ReadOnly = false;
                     foreach (DataGridViewRow rowe in dgvShowData.Rows)
@@ -168,6 +170,8 @@ namespace Resthome_Database
                         }
                     }
                     conn.Close();
+
+                    //this works, you can add rows, but the other rows cant be added/edited
                 }
                 else
                 {
