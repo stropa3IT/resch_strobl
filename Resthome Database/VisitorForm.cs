@@ -29,7 +29,7 @@ namespace Resthome_Database
             {
                 cbTables.Items.Add("Pensioner");
                 cbTables.Items.Add("Personal");
-                cbTables.Items.Add("Visitor"); 
+                cbTables.Items.Add("Visitor");
             }
             else
             {
@@ -55,9 +55,9 @@ namespace Resthome_Database
 
         public static bool CheckForDatabase(SqlConnection conn, string db)
         {
-                SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
-                conn.Open();    
-                return comm.ExecuteScalar() != DBNull.Value;        
+            SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
+            conn.Open();
+            return comm.ExecuteScalar() != DBNull.Value;
         }
 
         static void CreateDabase(SqlConnection conn, SqlCommand cmmd, string databasen)
@@ -102,7 +102,7 @@ namespace Resthome_Database
         {
             try
             {
-                if(cbTables.SelectedItem.Equals("Personal"))
+                if (cbTables.SelectedItem.Equals("Personal"))
                 {
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
@@ -155,7 +155,18 @@ namespace Resthome_Database
                     //row.Cells[1].Value = "";
                     //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
+                    DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
+                    row.Cells[0].Value = "XYZ";
+                    row.Cells[1].Value = 50.2;
+                    dgvShowData.Rows.Add(row);
                     dgvShowData.ReadOnly = false;
+                    foreach (DataGridViewRow rowe in dgvShowData.Rows)
+                    {
+                        if (!rowe.IsNewRow)
+                        {
+                            rowe.ReadOnly = true;
+                        }
+                    }
                     conn.Close();
                 }
                 else
@@ -204,13 +215,24 @@ namespace Resthome_Database
 
         }
 
-        private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvShowData["one", e.RowIndex].Value == "not editable")
-                dgvShowData.Rows[e.RowIndex].ReadOnly = true;
-            else
-                dgvShowData.Rows[e.RowIndex].ReadOnly = false;
-        }
+        //private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (dgvShowData["one", e.RowIndex].Value == "not editable")
+        //        dgvShowData.Rows[e.RowIndex].ReadOnly = true;
+        //    else
+        //        dgvShowData.Rows[e.RowIndex].ReadOnly = false;
+        //}
+
+        //private void dgvShowData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        //{
+        //foreach (DataGridViewRow row in dgvShowData.Rows)
+        //{
+        //    if (!row.IsNewRow)
+        //    {
+        //        row.ReadOnly = true;
+        //    }
+        //}
+        //}
 
         //void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
 

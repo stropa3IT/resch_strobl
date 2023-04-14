@@ -53,7 +53,6 @@
             this.dgvShowData.Name = "dgvShowData";
             this.dgvShowData.Size = new System.Drawing.Size(943, 348);
             this.dgvShowData.TabIndex = 1;
-            this.dgvShowData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowData_CellContentClick);
             // 
             // btnSave
             // 
