@@ -156,22 +156,30 @@ namespace Resthome_Database
                     //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
                     DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
-                    row.Cells[0].Value = "";
-                    row.Cells[1].Value = "";
-                    row.Cells[2].Value = "";
-                    row.Cells[3].Value = ""; 
-                    dgvShowData.Rows.Add(row);
-                    dgvShowData.ReadOnly = false;
-                    foreach (DataGridViewRow rowe in dgvShowData.Rows)
+                    //row.Cells[0].Value = "";
+                    //row.Cells[1].Value = "";
+                    //row.Cells[2].Value = "";
+                    //row.Cells[3].Value = ""; 
+                    //dgvShowData.Rows.Add(row);
+                    //dgvShowData.VirtualMode = true; 
+                    //dgvShowData.NewRowNeeded += 1;
+                    if (dgvShowData.IsCurrentCellInEditMode)
                     {
-                        if (!rowe.IsNewRow)
-                        {
-                            rowe.ReadOnly = true;
-                        }
+                        dgvShowData.ReadOnly = false;
                     }
+                    else
+                    {
+                        dgvShowData.ReadOnly = true; 
+                    }
+              
+                    //foreach (DataGridViewRow rowe in dgvShowData.Rows)
+                    //{
+                    //    if (!rowe.IsNewRow)
+                    //    {
+                    //        rowe.ReadOnly = true;
+                    //    }
+                    //}
                     conn.Close();
-
-                    //this works, you can add rows, but the other rows cant be added/edited
                 }
                 else
                 {
@@ -215,6 +223,11 @@ namespace Resthome_Database
         }
 
         private void cbTables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
