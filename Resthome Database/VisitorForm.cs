@@ -51,8 +51,6 @@ namespace Resthome_Database
 
         }
 
-
-
         public static bool CheckForDatabase(SqlConnection conn, string db)
         {
             SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
@@ -98,8 +96,9 @@ namespace Resthome_Database
                 MessageBox.Show("Something went wrong, please try something else");
             }
         }
-        private void btnLoadTable_Click(object sender, EventArgs e)
-        {
+
+         private void btnLoadTable_Click(object sender, EventArgs e)
+         {
             try
             {
                 if (cbTables.SelectedItem.Equals("Personal"))
@@ -140,6 +139,7 @@ namespace Resthome_Database
                 {
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
+                    
                     Query = "SELECT * FROM Visitor" /*chtable*/;
                     cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     conn.Close();
@@ -149,6 +149,7 @@ namespace Resthome_Database
                     SqlDataReader dataReader = cmmd.ExecuteReader();
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
+
                     //DataGridViewRow row = new DataGridViewRow();
                     //row.CreateCells(dgvShowData);
                     //row.Cells[0].Value = "";
@@ -156,22 +157,24 @@ namespace Resthome_Database
                     //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
                     DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
-                    //row.Cells[0].Value = "";
-                    //row.Cells[1].Value = "";
-                    //row.Cells[2].Value = "";
-                    //row.Cells[3].Value = ""; 
-                    //dgvShowData.Rows.Add(row);
-                    //dgvShowData.VirtualMode = true; 
-                    //dgvShowData.NewRowNeeded += 1;
-                    if (dgvShowData.IsCurrentCellInEditMode)
-                    {
-                        dgvShowData.ReadOnly = false;
-                    }
-                    else
-                    {
-                        dgvShowData.ReadOnly = true; 
-                    }
-              
+                    row.Cells[0].Value = "";
+                    row.Cells[1].Value = "";
+                    row.Cells[2].Value = "";
+                    row.Cells[3].Value = "";
+                    dgvShowData.Rows.Add(row);
+                    dgvShowData.VirtualMode = true;
+
+                    //wenn gar nix hilft müssen wir einfach für Visitor ein neues Forms verwenden und wenn due Combobox gewählt wird dies dann öffnen
+
+                    //if (dgvShowData.IsCurrentCellInEditMode)
+                    //{
+                    //    dgvShowData.ReadOnly = true;
+                    //}
+                    //else
+                    //{
+                    //    dgvShowData.ReadOnly = false;
+                    //}
+
                     //foreach (DataGridViewRow rowe in dgvShowData.Rows)
                     //{
                     //    if (!rowe.IsNewRow)
@@ -179,19 +182,20 @@ namespace Resthome_Database
                     //        rowe.ReadOnly = true;
                     //    }
                     //}
+
                     conn.Close();
                 }
                 else
                 {
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("one");
-                    DataRow dr = dt.NewRow();
-                    dr["one"] = "not editable";
-                    dt.Rows.Add(dr);
-                    DataRow dr1 = dt.NewRow();
-                    dr1["one"] = "editable";
-                    dt.Rows.Add(dr1);
-                    dgvShowData.DataSource = dt;
+                    //DataTable dt = new DataTable();
+                    //dt.Columns.Add("one");
+                    //DataRow dr = dt.NewRow();
+                    //dr["one"] = "not editable";
+                    //dt.Rows.Add(dr);
+                    //DataRow dr1 = dt.NewRow();
+                    //dr1["one"] = "editable";
+                    //dt.Rows.Add(dr1);
+                    //dgvShowData.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -229,64 +233,8 @@ namespace Resthome_Database
 
         private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //sfdg
+            //
         }
-
-        //private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (dgvShowData["one", e.RowIndex].Value == "not editable")
-        //        dgvShowData.Rows[e.RowIndex].ReadOnly = true;
-        //    else
-        //        dgvShowData.Rows[e.RowIndex].ReadOnly = false;
-        //}
-
-        //private void dgvShowData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        //{
-        //foreach (DataGridViewRow row in dgvShowData.Rows)
-        //{
-        //    if (!row.IsNewRow)
-        //    {
-        //        row.ReadOnly = true;
-        //    }
-        //}
-        //}
-
-        //void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
-
-        //{
-
-        //    if (dataGridView1.NewRowIndex == e.RowIndex)
-
-        //    {
-
-        //        dataGridView1.Rows[e.RowIndex].ReadOnly = false;
-
-        //    }
-
-        //    else
-
-        //    {
-
-        //        dataGridView1.Rows[e.RowIndex].ReadOnly = true;
-
-        //    }
-
-        //} 
-        //private void dgvShowData_RowEnter(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (dgvShowData["one", e.RowIndex].Value == "not editable")
-        //        dgvShowData.Rows[e.RowIndex].ReadOnly = true;
-        //    else
-        //        dgvShowData.Rows[e.RowIndex].ReadOnly = false;
-        //}
-
-        //private void myDataGridview_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        //{
-
-        //    myDataGridview.Rows[e.RowIndex].ReadOnly = false;
-        //    myDataGridview.FirstDisplayedScrollingRowIndex = e.RowIndex;
-
-        //}
     }
 }
 
