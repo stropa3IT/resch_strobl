@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Resthome_Database
 {
-    public partial class FormAdmin : Form
+    public partial class FormAdmin : Login
     {
         public static string databasen = "Resthome";
         public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true;");
