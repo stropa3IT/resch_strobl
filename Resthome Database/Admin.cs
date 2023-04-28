@@ -145,8 +145,14 @@ namespace Resthome_Database
 
         private void btnTestVisitor_Click(object sender, EventArgs e)
         {
-            FormVisitor formVisitor = new FormVisitor();
-            formVisitor.Show();
+            VisitorInput visitor = new VisitorInput();
+            visitor.Show();
+        }
+
+        private void btnVisitorEditTest_Click(object sender, EventArgs e)
+        {
+            VisitorEdit visitorEdit = new VisitorEdit();
+            visitorEdit.ShowDialog(); 
         }
     }
 }

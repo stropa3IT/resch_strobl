@@ -33,6 +33,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
             this.btnTestVisitor = new System.Windows.Forms.Button();
+            this.btnVisitorEditTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +83,22 @@
             this.btnTestVisitor.UseVisualStyleBackColor = true;
             this.btnTestVisitor.Click += new System.EventHandler(this.btnTestVisitor_Click);
             // 
+            // btnVisitorEditTest
+            // 
+            this.btnVisitorEditTest.Location = new System.Drawing.Point(176, 481);
+            this.btnVisitorEditTest.Name = "btnVisitorEditTest";
+            this.btnVisitorEditTest.Size = new System.Drawing.Size(149, 36);
+            this.btnVisitorEditTest.TabIndex = 5;
+            this.btnVisitorEditTest.Text = "Visitor Test";
+            this.btnVisitorEditTest.UseVisualStyleBackColor = true;
+            this.btnVisitorEditTest.Click += new System.EventHandler(this.btnVisitorEditTest_Click);
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 541);
+            this.Controls.Add(this.btnVisitorEditTest);
             this.Controls.Add(this.btnTestVisitor);
             this.Controls.Add(this.cbTables);
             this.Controls.Add(this.btnSave);
@@ -107,6 +119,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
         private System.Windows.Forms.Button btnTestVisitor;
+        private System.Windows.Forms.Button btnVisitorEditTest;
     }
 }
 
