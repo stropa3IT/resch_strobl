@@ -32,7 +32,7 @@ namespace Resthome_Database
         private void btnCreateVisitor_Click(object sender, EventArgs e)
         {
             conn.Open();
-            cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( "+ txtFirstname.Text + ", " + txtLastName.Text + ", " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
+            cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '"+ txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
             cmmd.ExecuteNonQuery(); 
             conn.Close(); 
         }
