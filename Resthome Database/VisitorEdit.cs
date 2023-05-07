@@ -27,7 +27,8 @@ namespace Resthome_Database
             
             conn.Open();
             //https://stackoverflow.com/questions/39002025/is-there-a-lastindexof-in-sql-server   
-            cmmd.CommandText = "SELECT right(db_name(), charindex('_', reverse(db_name()) + '_') -1) FROM Visitor;"; 
+            //cmmd.CommandText = "SELECT right(db_name(), charindex('_', reverse(db_name()) + '_') -1) FROM Visitor;"; 
+            cmmd.CommandText = "SELECT LEFT(db_name(), len(db_name()) - charindex('_', reverse(db_name()) + '_')) FROM Visitor";
             //cmmd.CommandText = "SELECT * FROM Visitor where ID = ;";
             cmmd.ExecuteNonQuery(); 
             SqlDataReader DR1 = cmmd.ExecuteReader();
