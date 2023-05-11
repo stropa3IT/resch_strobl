@@ -24,22 +24,36 @@ namespace Resthome_Database
 
         private void btnLoadLastIndex_Click(object sender, EventArgs e)
         {
-            
-            conn.Open();
+
+
             //https://stackoverflow.com/questions/39002025/is-there-a-lastindexof-in-sql-server   
             //cmmd.CommandText = "SELECT right(db_name(), charindex('_', reverse(db_name()) + '_') -1) FROM Visitor;"; 
-            cmmd.CommandText = "SELECT LEFT(db_name(), len(db_name()) - charindex('_', reverse(db_name()) + '_')) FROM Visitor";
-            //cmmd.CommandText = "SELECT * FROM Visitor where ID = ;";
-            cmmd.ExecuteNonQuery(); 
-            SqlDataReader DR1 = cmmd.ExecuteReader();
-            if (DR1.Read())
+            //cmmd.CommandText = "SELECT LEFT(db_name(), len(db_name()) - charindex('_', reverse(db_name()) + '_')) FROM Visitor";
+            
+            conn.Open();
+            string data = "SELECT * FROM Visitor";
+            SqlCommand cm = new SqlCommand(data, conn);
+            SqlDataReader dr = cm.ExecuteReader();
+            //cmmd.CommandText = "SELECT * FROM Visitor where ID = " + dr[0] + "";
+            while (dr.Read()) //you can also use for I guess
             {
-                txtFirstname.Text = DR1.GetValue(0).ToString();
-                txtLastName.Text = DR1.GetValue(1).ToString();
-                txtAge.Text = DR1.GetValue(2).ToString();
-                txtDay.Text = DR1.GetValue(3).ToString();
+                txtFirstname.Text = dr[1].ToString();
+                txtLastName.Text = dr[2].ToString();
+                txtAge.Text = dr[3].ToString();
+                txtDay.Text = dr[4].ToString();
             }
+            dr.Close();
             conn.Close();
+
+            //SqlDataReader DR1 = cmmd.ExecuteReader();
+            //if (DR1.Read())
+            //{
+            //    txtFirstname.Text = DR1.GetValue(0).ToString();
+            //    txtLastName.Text = DR1.GetValue(1).ToString();
+            //    txtAge.Text = DR1.GetValue(2).ToString();
+            //    txtDay.Text = DR1.GetValue(3).ToString();
+            //}
+            //DR1.Close();
         }
     }
 }
