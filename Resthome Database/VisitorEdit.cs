@@ -37,6 +37,7 @@ namespace Resthome_Database
             //cmmd.CommandText = "SELECT * FROM Visitor where ID = " + dr[0] + "";
             while (dr.Read()) //you can also use for I guess
             {
+                txtID.Text = dr[0].ToString();
                 txtFirstname.Text = dr[1].ToString();
                 txtLastName.Text = dr[2].ToString();
                 txtAge.Text = dr[3].ToString();
@@ -44,16 +45,48 @@ namespace Resthome_Database
             }
             dr.Close();
             conn.Close();
+        }
 
-            //SqlDataReader DR1 = cmmd.ExecuteReader();
-            //if (DR1.Read())
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+            conn.Open();
+            //string data = "SELECT * FROM Visitor";
+            //SqlCommand cm = new SqlCommand(data, conn);
+            //SqlDataReader dr = cm.ExecuteReader();
+            ////cmmd.CommandText = "SELECT * FROM Visitor where ID = " + dr[0] + "";
+            //while (dr.Read()) //you can also use for I guess
             //{
-            //    txtFirstname.Text = DR1.GetValue(0).ToString();
-            //    txtLastName.Text = DR1.GetValue(1).ToString();
-            //    txtAge.Text = DR1.GetValue(2).ToString();
-            //    txtDay.Text = DR1.GetValue(3).ToString();
+            //    cmmd.CommandText = "UPDATE Visitor SET Firstname = 'Lukas', LastName = 'Sina', Age = " + Int32.Parse(txtAge.Text) + ", Day = '02.02.2022' WHERE ID = " + dr[0] +";";
+            //    cmmd.ExecuteNonQuery();
+
+            //    //cmmd.CommandText = "UPDATE Visitor SET Firstname = '@fn', LastName = '@ln', Age = @age, Day = '@day' WHERE ID = 5" /*+ dr[0] + ""*/;
+
+            //    //cmmd.Parameters.AddWithValue("@fn", txtFirstname.Text);
+            //    //cmmd.Parameters.AddWithValue("@ln", txtLastName.Text);
+            //    //cmmd.Parameters.AddWithValue("@age", Int32.Parse(txtAge.Text));
+            //    //cmmd.Parameters.AddWithValue("@day", txtDay.Text);
+
             //}
-            //DR1.Close();
+            //dr.Close();
+
+            cmmd.CommandText = "UPDATE Visitor SET Firstname = '" + txtFirstname.Text + "', LastName = '"+ txtLastName.Text +"', Age = " + Int32.Parse(txtAge.Text) + ", Day = '" + txtDay.Text + "' WHERE ID = " + txtID.Text + ";";
+            cmmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        private void txtDelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            cmmd.CommandText = "DELETE FROM Visitor WHERE ID = " + txtID.Text + ";";
+            cmmd.ExecuteNonQuery();
+            btnEdit.Enabled = false;
+            btnLoadLastIndex.Enabled = false;
+            txtDelete.Enabled = false;
+
+
+            conn.Close();
         }
     }
 }
