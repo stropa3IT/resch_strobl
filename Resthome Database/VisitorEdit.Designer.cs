@@ -40,6 +40,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtDelete = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LastName
@@ -128,8 +130,9 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(256, 12);
+            this.txtID.Location = new System.Drawing.Point(308, 12);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 21;
             // 
@@ -143,11 +146,32 @@
             this.txtDelete.UseVisualStyleBackColor = true;
             this.txtDelete.Click += new System.EventHandler(this.txtDelete_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(284, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "ID";
+            // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Location = new System.Drawing.Point(380, 86);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(87, 49);
+            this.btnGoBack.TabIndex = 24;
+            this.btnGoBack.Text = "Zurück zur Übersicht";
+            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            // 
             // VisitorEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 147);
+            this.Controls.Add(this.btnGoBack);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDelete);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnEdit);
@@ -181,5 +205,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button txtDelete;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }

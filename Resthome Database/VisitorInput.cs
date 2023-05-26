@@ -31,10 +31,26 @@ namespace Resthome_Database
 
         private void btnCreateVisitor_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '"+ txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
-            cmmd.ExecuteNonQuery(); 
-            conn.Close(); 
+            try
+            {
+                conn.Close();
+                conn.Open();
+                cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '" + txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
+                cmmd.ExecuteNonQuery();
+                conn.Close();
+                this.Visible = false;
+                FormVisitor formVisitor = new FormVisitor();
+                formVisitor.ShowDialog();
+                this.Close();
+            }
+            catch(System.FormatException FE)
+            {
+                MessageBox.Show("Sie haben das falsche Format eingegeben, geben Sie nächstes Mal bitte nur Zahlen ein!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Geben Sie nächstes Mal beim Datum Ihr Datum laut diesem Format ein: 00.00.0000 00:00:00 --> sprich Tag.Monat.Jahr und die Uhrzeit: Stunden:Minuten:Sekunden!");
+            }
         }
     }
 }

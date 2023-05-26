@@ -78,15 +78,24 @@ namespace Resthome_Database
         private void txtDelete_Click(object sender, EventArgs e)
         {
             conn.Open();
-
             cmmd.CommandText = "DELETE FROM Visitor WHERE ID = " + txtID.Text + ";";
             cmmd.ExecuteNonQuery();
             btnEdit.Enabled = false;
             btnLoadLastIndex.Enabled = false;
             txtDelete.Enabled = false;
-
-
             conn.Close();
+            this.Visible = false; 
+            FormVisitor formVisitor = new FormVisitor();
+            formVisitor.ShowDialog();
+            this.Close();
+        }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormVisitor formVisitor = new FormVisitor();
+            formVisitor.ShowDialog();
+            this.Close();
         }
     }
 }

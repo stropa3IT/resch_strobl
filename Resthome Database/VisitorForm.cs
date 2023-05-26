@@ -53,9 +53,10 @@ namespace Resthome_Database
 
         public static bool CheckForDatabase(SqlConnection conn, string db)
         {
-            SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
-            conn.Open();
-            return comm.ExecuteScalar() != DBNull.Value;
+                conn.Close();
+                SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
+                conn.Open();
+                return comm.ExecuteScalar() != DBNull.Value;
         }
 
         static void CreateDabase(SqlConnection conn, SqlCommand cmmd, string databasen)
@@ -69,9 +70,10 @@ namespace Resthome_Database
                 cmmd.ExecuteNonQuery();
                 conn.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Something went wrong, please try something else");
             }
         }
         static void CreateTable(SqlConnection conn, SqlCommand cmmd, string databasen)
@@ -91,9 +93,10 @@ namespace Resthome_Database
                 conn.Close();
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Something went wrong, please try something else");
             }
         }
 
@@ -139,7 +142,6 @@ namespace Resthome_Database
                 {
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
-                    
                     Query = "SELECT * FROM Visitor" /*chtable*/;
                     cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     conn.Close();
@@ -149,53 +151,13 @@ namespace Resthome_Database
                     SqlDataReader dataReader = cmmd.ExecuteReader();
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
-
-                    //DataGridViewRow row = new DataGridViewRow();
-                    //row.CreateCells(dgvShowData);
-                    //row.Cells[0].Value = "";
-                    //row.Cells[1].Value = "";
-                    //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
-                    DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
-                    row.Cells[0].Value = "";
-                    row.Cells[1].Value = "";
-                    row.Cells[2].Value = "";
-                    row.Cells[3].Value = "";
-                    dgvShowData.Rows.Add(row);
-                    dgvShowData.VirtualMode = true;
-
-                    //wenn gar nix hilft müssen wir einfach für Visitor ein neues Forms verwenden und wenn due Combobox gewählt wird dies dann öffnen
-
-                    //if (dgvShowData.IsCurrentCellInEditMode)
-                    //{
-                    //    dgvShowData.ReadOnly = true;
-                    //}
-                    //else
-                    //{
-                    //    dgvShowData.ReadOnly = false;
-                    //}
-
-                    //foreach (DataGridViewRow rowe in dgvShowData.Rows)
-                    //{
-                    //    if (!rowe.IsNewRow)
-                    //    {
-                    //        rowe.ReadOnly = true;
-                    //    }
-                    //}
-
+                    dgvShowData.ReadOnly = true;
                     conn.Close();
                 }
                 else
                 {
-                    //DataTable dt = new DataTable();
-                    //dt.Columns.Add("one");
-                    //DataRow dr = dt.NewRow();
-                    //dr["one"] = "not editable";
-                    //dt.Rows.Add(dr);
-                    //DataRow dr1 = dt.NewRow();
-                    //dr1["one"] = "editable";
-                    //dt.Rows.Add(dr1);
-                    //dgvShowData.DataSource = dt;
+                    MessageBox.Show("Something went wrong, but we don't know what!");
                 }
             }
             catch (Exception ex)
@@ -205,35 +167,34 @@ namespace Resthome_Database
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                //With SqlBulk you can add, edit, delete ... data from your datagridview and it copies the items to your datatable
-                string chhtable = (string)cbTables.SelectedItem;
-                cmmd.CommandText = "Truncate table Visitor";
-                conn.Close();
-                conn.Open();
-                cmmd.ExecuteNonQuery();
-                SqlBulkCopy copy = new SqlBulkCopy(conn);
-                copy.DestinationTableName = chhtable;
-                copy.WriteToServer(dataTable);
-                conn.Close();
+                this.Visible = false;
+                VisitorInput visitorInput = new VisitorInput();
+                visitorInput.ShowDialog();
+                this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show(ex.ToString());
             }
         }
 
-        private void cbTables_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //
+            try
+            {
+                this.Visible = false;
+                VisitorEdit visitorEdit = new VisitorEdit();
+                visitorEdit.ShowDialog();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

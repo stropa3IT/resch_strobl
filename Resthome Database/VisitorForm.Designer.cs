@@ -30,8 +30,9 @@
         {
             this.btnLoadTable = new System.Windows.Forms.Button();
             this.dgvShowData = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,34 +57,44 @@
             this.dgvShowData.ReadOnly = true;
             this.dgvShowData.Size = new System.Drawing.Size(943, 348);
             this.dgvShowData.TabIndex = 1;
-            this.dgvShowData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowData_CellContentClick);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(724, 472);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(167, 45);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbTables
             // 
+            this.cbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTables.FormattingEnabled = true;
             this.cbTables.Location = new System.Drawing.Point(263, 34);
             this.cbTables.Name = "cbTables";
             this.cbTables.Size = new System.Drawing.Size(128, 21);
             this.cbTables.TabIndex = 3;
-            this.cbTables.SelectedIndexChanged += new System.EventHandler(this.cbTables_SelectedIndexChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(198, 472);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(163, 45);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Bearbeiten und Löschen des Datensatzes";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(3, 472);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(189, 45);
+            this.btnCreate.TabIndex = 6;
+            this.btnCreate.Text = "Erstellen eines Datensatzes";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 541);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cbTables);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvShowData);
             this.Controls.Add(this.btnLoadTable);
             this.Name = "FormVisitor";
@@ -98,8 +109,9 @@
 
         private System.Windows.Forms.Button btnLoadTable;
         private System.Windows.Forms.DataGridView dgvShowData;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCreate;
     }
 }
 
