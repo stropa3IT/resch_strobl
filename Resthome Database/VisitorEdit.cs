@@ -25,7 +25,6 @@ namespace Resthome_Database
         private void btnLoadLastIndex_Click(object sender, EventArgs e)
         {
 
-
             //https://stackoverflow.com/questions/39002025/is-there-a-lastindexof-in-sql-server   
             //cmmd.CommandText = "SELECT right(db_name(), charindex('_', reverse(db_name()) + '_') -1) FROM Visitor;"; 
             //cmmd.CommandText = "SELECT LEFT(db_name(), len(db_name()) - charindex('_', reverse(db_name()) + '_')) FROM Visitor";
@@ -50,28 +49,8 @@ namespace Resthome_Database
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
             conn.Open();
-            //string data = "SELECT * FROM Visitor";
-            //SqlCommand cm = new SqlCommand(data, conn);
-            //SqlDataReader dr = cm.ExecuteReader();
-            ////cmmd.CommandText = "SELECT * FROM Visitor where ID = " + dr[0] + "";
-            //while (dr.Read()) //you can also use for I guess
-            //{
-            //    cmmd.CommandText = "UPDATE Visitor SET Firstname = 'Lukas', LastName = 'Sina', Age = " + Int32.Parse(txtAge.Text) + ", Day = '02.02.2022' WHERE ID = " + dr[0] +";";
-            //    cmmd.ExecuteNonQuery();
-
-            //    //cmmd.CommandText = "UPDATE Visitor SET Firstname = '@fn', LastName = '@ln', Age = @age, Day = '@day' WHERE ID = 5" /*+ dr[0] + ""*/;
-
-            //    //cmmd.Parameters.AddWithValue("@fn", txtFirstname.Text);
-            //    //cmmd.Parameters.AddWithValue("@ln", txtLastName.Text);
-            //    //cmmd.Parameters.AddWithValue("@age", Int32.Parse(txtAge.Text));
-            //    //cmmd.Parameters.AddWithValue("@day", txtDay.Text);
-
-            //}
-            //dr.Close();
-
             cmmd.CommandText = "UPDATE Visitor SET Firstname = '" + txtFirstname.Text + "', LastName = '"+ txtLastName.Text +"', Age = " + Int32.Parse(txtAge.Text) + ", Day = '" + txtDay.Text + "' WHERE ID = " + txtID.Text + ";";
             cmmd.ExecuteNonQuery();
-
             conn.Close();
         }
 

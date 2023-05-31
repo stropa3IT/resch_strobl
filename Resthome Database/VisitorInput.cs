@@ -31,10 +31,21 @@ namespace Resthome_Database
 
         private void btnCreateVisitor_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '"+ txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
-            cmmd.ExecuteNonQuery(); 
-            conn.Close(); 
+            try
+            {
+                conn.Open();
+                cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '" + txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
+                cmmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch(FormatException) 
+            {
+                MessageBox.Show("Sie haben das falsche Format eingegeben, geben Sie nächstes Mal das Datums Format so ein: dd.mm.yyyy hh:mm:ss und bei Alter (Age) dürfen sie nur Zahlen eingeben!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
+            }
         }
     }
 }

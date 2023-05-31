@@ -149,12 +149,6 @@ namespace Resthome_Database
                     SqlDataReader dataReader = cmmd.ExecuteReader();
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
-
-                    //DataGridViewRow row = new DataGridViewRow();
-                    //row.CreateCells(dgvShowData);
-                    //row.Cells[0].Value = "";
-                    //row.Cells[1].Value = "";
-                    //dgvShowData.Rows.Add(row);
                     dgvShowData.DataSource = dataTable;
                     DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
                     row.Cells[0].Value = "";
@@ -163,39 +157,11 @@ namespace Resthome_Database
                     row.Cells[3].Value = "";
                     dgvShowData.Rows.Add(row);
                     dgvShowData.VirtualMode = true;
-
-                    //wenn gar nix hilft müssen wir einfach für Visitor ein neues Forms verwenden und wenn due Combobox gewählt wird dies dann öffnen
-
-                    //if (dgvShowData.IsCurrentCellInEditMode)
-                    //{
-                    //    dgvShowData.ReadOnly = true;
-                    //}
-                    //else
-                    //{
-                    //    dgvShowData.ReadOnly = false;
-                    //}
-
-                    //foreach (DataGridViewRow rowe in dgvShowData.Rows)
-                    //{
-                    //    if (!rowe.IsNewRow)
-                    //    {
-                    //        rowe.ReadOnly = true;
-                    //    }
-                    //}
-
                     conn.Close();
                 }
                 else
                 {
-                    //DataTable dt = new DataTable();
-                    //dt.Columns.Add("one");
-                    //DataRow dr = dt.NewRow();
-                    //dr["one"] = "not editable";
-                    //dt.Rows.Add(dr);
-                    //DataRow dr1 = dt.NewRow();
-                    //dr1["one"] = "editable";
-                    //dt.Rows.Add(dr1);
-                    //dgvShowData.DataSource = dt;
+                    MessageBox.Show("Something went wrong, please try something else");
                 }
             }
             catch (Exception ex)
@@ -224,16 +190,6 @@ namespace Resthome_Database
             {
                 MessageBox.Show("Something went wrong, please try something else");
             }
-        }
-
-        private void cbTables_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //
         }
     }
 }
