@@ -63,15 +63,17 @@
             this.btnLoadTable.TabIndex = 5;
             this.btnLoadTable.Text = "Load Table";
             this.btnLoadTable.UseVisualStyleBackColor = true;
+            this.btnLoadTable.Click += new System.EventHandler(this.btnLoadTable_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(363, 473);
+            this.btnSave.Location = new System.Drawing.Point(792, 481);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(167, 45);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // PersonalForm
             // 
@@ -84,6 +86,7 @@
             this.Controls.Add(this.dgvShowData);
             this.Name = "PersonalForm";
             this.Text = "PersonalForm";
+            this.Load += new System.EventHandler(this.PersonalForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).EndInit();
             this.ResumeLayout(false);
 

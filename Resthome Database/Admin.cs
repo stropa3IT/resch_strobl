@@ -154,6 +154,12 @@ namespace Resthome_Database
             VisitorEdit visitorEdit = new VisitorEdit();
             visitorEdit.ShowDialog(); 
         }
+
+        private void btnPersonalTest_Click(object sender, EventArgs e)
+        {
+            PersonalForm personalForm   = new PersonalForm();
+            personalForm.ShowDialog();
+        }
     }
 }
 

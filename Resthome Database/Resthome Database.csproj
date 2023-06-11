@@ -100,12 +100,6 @@
     <Compile Include="VisitorInput.Designer.cs">
       <DependentUpon>VisitorInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistorFormVisitorOne.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistorFormVisitorOne.Designer.cs">
-      <DependentUpon>VistorFormVisitorOne.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="PersonalForm.resx">
       <DependentUpon>PersonalForm.cs</DependentUpon>
     </EmbeddedResource>
