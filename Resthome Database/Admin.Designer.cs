@@ -94,22 +94,11 @@
             this.btnVisitorEditTest.UseVisualStyleBackColor = true;
             this.btnVisitorEditTest.Click += new System.EventHandler(this.btnVisitorEditTest_Click);
             // 
-            // btnPersonalTest
-            // 
-            this.btnPersonalTest.Location = new System.Drawing.Point(331, 481);
-            this.btnPersonalTest.Name = "btnPersonalTest";
-            this.btnPersonalTest.Size = new System.Drawing.Size(149, 36);
-            this.btnPersonalTest.TabIndex = 6;
-            this.btnPersonalTest.Text = "Personal Test";
-            this.btnPersonalTest.UseVisualStyleBackColor = true;
-            this.btnPersonalTest.Click += new System.EventHandler(this.btnPersonalTest_Click);
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 541);
-            this.Controls.Add(this.btnPersonalTest);
             this.Controls.Add(this.btnVisitorEditTest);
             this.Controls.Add(this.btnTestVisitor);
             this.Controls.Add(this.cbTables);
@@ -132,7 +121,6 @@
         private System.Windows.Forms.ComboBox cbTables;
         private System.Windows.Forms.Button btnTestVisitor;
         private System.Windows.Forms.Button btnVisitorEditTest;
-        private System.Windows.Forms.Button btnPersonalTest;
     }
 }
 

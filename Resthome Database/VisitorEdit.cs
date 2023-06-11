@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
 
 namespace Resthome_Database
 {
@@ -28,7 +28,7 @@ namespace Resthome_Database
             //https://stackoverflow.com/questions/39002025/is-there-a-lastindexof-in-sql-server   
             //cmmd.CommandText = "SELECT right(db_name(), charindex('_', reverse(db_name()) + '_') -1) FROM Visitor;"; 
             //cmmd.CommandText = "SELECT LEFT(db_name(), len(db_name()) - charindex('_', reverse(db_name()) + '_')) FROM Visitor";
-            
+
             conn.Open();
             string data = "SELECT * FROM Visitor";
             SqlCommand cm = new SqlCommand(data, conn);
@@ -49,7 +49,7 @@ namespace Resthome_Database
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
             conn.Open();
-            cmmd.CommandText = "UPDATE Visitor SET Firstname = '" + txtFirstname.Text + "', LastName = '"+ txtLastName.Text +"', Age = " + Int32.Parse(txtAge.Text) + ", Day = '" + txtDay.Text + "' WHERE ID = " + txtID.Text + ";";
+            cmmd.CommandText = "UPDATE Visitor SET Firstname = '" + txtFirstname.Text + "', LastName = '" + txtLastName.Text + "', Age = " + Int32.Parse(txtAge.Text) + ", Day = '" + txtDay.Text + "' WHERE ID = " + txtID.Text + ";";
             cmmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -57,15 +57,24 @@ namespace Resthome_Database
         private void txtDelete_Click(object sender, EventArgs e)
         {
             conn.Open();
-
             cmmd.CommandText = "DELETE FROM Visitor WHERE ID = " + txtID.Text + ";";
             cmmd.ExecuteNonQuery();
             btnEdit.Enabled = false;
             btnLoadLastIndex.Enabled = false;
             txtDelete.Enabled = false;
-
-
             conn.Close();
+            this.Visible = false;
+            FormVisitor formVisitor = new FormVisitor();
+            formVisitor.ShowDialog();
+            this.Close();
+        }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormVisitor formVisitor = new FormVisitor();
+            formVisitor.ShowDialog();
+            this.Close();
         }
     }
 }

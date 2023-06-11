@@ -30,8 +30,9 @@
         {
             this.btnLoadTable = new System.Windows.Forms.Button();
             this.dgvShowData = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,31 +58,24 @@
             this.dgvShowData.Size = new System.Drawing.Size(943, 348);
             this.dgvShowData.TabIndex = 1;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(724, 472);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(167, 45);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // cbTables
             // 
+            this.cbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTables.FormattingEnabled = true;
             this.cbTables.Location = new System.Drawing.Point(263, 34);
             this.cbTables.Name = "cbTables";
             this.cbTables.Size = new System.Drawing.Size(128, 21);
             this.cbTables.TabIndex = 3;
+            this.cbTables.SelectedIndexChanged += new System.EventHandler(this.cbTables_SelectedIndexChanged);
             // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 541);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cbTables);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvShowData);
             this.Controls.Add(this.btnLoadTable);
             this.Name = "FormVisitor";
@@ -96,8 +90,9 @@
 
         private System.Windows.Forms.Button btnLoadTable;
         private System.Windows.Forms.DataGridView dgvShowData;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCreate;
     }
 }
 

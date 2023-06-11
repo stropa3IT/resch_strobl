@@ -145,20 +145,10 @@ namespace Resthome_Database
 
         private void btnTestVisitor_Click(object sender, EventArgs e)
         {
-            VisitorInput visitor = new VisitorInput();
-            visitor.Show();
-        }
-
-        private void btnVisitorEditTest_Click(object sender, EventArgs e)
-        {
-            VisitorEdit visitorEdit = new VisitorEdit();
-            visitorEdit.ShowDialog(); 
-        }
-
-        private void btnPersonalTest_Click(object sender, EventArgs e)
-        {
-            PersonalForm personalForm   = new PersonalForm();
-            personalForm.ShowDialog();
+            this.Visible = false; 
+            FormVisitor formVisitor = new FormVisitor();
+            formVisitor.ShowDialog();
+            this.Close();
         }
     }
 }
