@@ -15,6 +15,10 @@ namespace Resthome_Database
 {
     public partial class VisitorInput : Form
     {
+        public static string databasen = "Resthome";
+        public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true; database =  " + databasen);
+        public static SqlCommand cmmd = new SqlCommand("", conn);
+
         public VisitorInput()
         {
             InitializeComponent();
@@ -25,18 +29,16 @@ namespace Resthome_Database
 
         }
 
-        public static string databasen = "Resthome";
-        public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true; database =  " + databasen);
-        public static SqlCommand cmmd = new SqlCommand("", conn);
-
         private void btnCreateVisitor_Click(object sender, EventArgs e)
         {
             try
             {
+                conn.Close();
                 conn.Open();
                 cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '" + txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
                 cmmd.ExecuteNonQuery();
                 conn.Close();
+                this.Visible = false; 
             }
             catch(FormatException) 
             {

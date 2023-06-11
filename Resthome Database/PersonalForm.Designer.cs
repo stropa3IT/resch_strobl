@@ -41,25 +41,25 @@
             this.dgvShowData.AllowUserToDeleteRows = false;
             this.dgvShowData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvShowData.Location = new System.Drawing.Point(89, 88);
+            this.dgvShowData.Location = new System.Drawing.Point(12, 56);
             this.dgvShowData.Name = "dgvShowData";
             this.dgvShowData.ReadOnly = true;
-            this.dgvShowData.Size = new System.Drawing.Size(943, 348);
+            this.dgvShowData.Size = new System.Drawing.Size(1095, 510);
             this.dgvShowData.TabIndex = 2;
             // 
             // cbTables
             // 
             this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(363, 36);
+            this.cbTables.Location = new System.Drawing.Point(27, 12);
             this.cbTables.Name = "cbTables";
-            this.cbTables.Size = new System.Drawing.Size(128, 21);
+            this.cbTables.Size = new System.Drawing.Size(178, 21);
             this.cbTables.TabIndex = 4;
             // 
             // btnLoadTable
             // 
-            this.btnLoadTable.Location = new System.Drawing.Point(537, 27);
+            this.btnLoadTable.Location = new System.Drawing.Point(235, 5);
             this.btnLoadTable.Name = "btnLoadTable";
-            this.btnLoadTable.Size = new System.Drawing.Size(149, 36);
+            this.btnLoadTable.Size = new System.Drawing.Size(105, 33);
             this.btnLoadTable.TabIndex = 5;
             this.btnLoadTable.Text = "Load Table";
             this.btnLoadTable.UseVisualStyleBackColor = true;
@@ -67,11 +67,11 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(792, 481);
+            this.btnSave.Location = new System.Drawing.Point(875, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(167, 45);
+            this.btnSave.Size = new System.Drawing.Size(220, 33);
             this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Save Table";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 

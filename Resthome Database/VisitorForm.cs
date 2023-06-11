@@ -40,7 +40,6 @@ namespace Resthome_Database
 
         private void Connect()
         {
-
             string connectionString = @"Data Source=MyServerName;Initial Catalog=MyDbName; User ID=Admin; Password=Root";
 
             SqlConnection connection = new SqlConnection(connectionString);
@@ -48,7 +47,6 @@ namespace Resthome_Database
             connection.Open();
 
             connection.Close();
-
         }
 
         public static bool CheckForDatabase(SqlConnection conn, string db)
@@ -70,10 +68,9 @@ namespace Resthome_Database
                 cmmd.ExecuteNonQuery();
                 conn.Close();
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show("Something went wrong, please try something else");
             }
         }
         static void CreateTable(SqlConnection conn, SqlCommand cmmd, string databasen)
@@ -92,11 +89,9 @@ namespace Resthome_Database
                 sqlCommand.ExecuteNonQuery();
                 conn.Close();
             }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Something went wrong, please try something else");
+            catch
+            { 
+                MessageBox.Show("Something went wrong, please try something else"); 
             }
         }
 
@@ -152,60 +147,55 @@ namespace Resthome_Database
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
                     dgvShowData.DataSource = dataTable;
-                    DataGridViewRow row = (DataGridViewRow)dgvShowData.Rows[0].Clone();
-                    row.Cells[0].Value = "";
-                    row.Cells[1].Value = "";
-                    row.Cells[2].Value = "";
-                    row.Cells[3].Value = "";
-                    dgvShowData.Rows.Add(row);
-                    dgvShowData.VirtualMode = true;
                     conn.Close();
                 }
                 else
                 {
-                    //DataTable dt = new DataTable();
-                    //dt.Columns.Add("one");
-                    //DataRow dr = dt.NewRow();
-                    //dr["one"] = "not editable";
-                    //dt.Rows.Add(dr);
-                    //DataRow dr1 = dt.NewRow();
-                    //dr1["one"] = "editable";
-                    //dt.Rows.Add(dr1);
-                    //dgvShowData.DataSource = dt;
+                    MessageBox.Show("Something went wrong, please try something else");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show("Something went wrong, please try something else");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Something went wrong, please try something else");
             }
-        }
+        } 
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                this.Visible = false;
                 VisitorInput visitorInput = new VisitorInput();
                 visitorInput.ShowDialog();
-                this.Close();
+                btnCreate.Enabled = false;
+                btnEdit.Enabled = false;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Something went wrong, please try something else");
             }
         }
 
-        private void cbTables_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
-
+            VisitorDelete visitorDelete = new VisitorDelete();
+            visitorDelete.ShowDialog();
+            btnCreate.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
-        private void dgvShowData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
-            //
+            try
+            {
+                VisitorEdit visitorEdit = new VisitorEdit();
+                visitorEdit.ShowDialog();
+                btnCreate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong, please try something else");
+            }
         }
     }
 }
-
-       

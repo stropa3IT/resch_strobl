@@ -33,14 +33,12 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
             this.btnTestVisitor = new System.Windows.Forms.Button();
-            this.btnVisitorEditTest = new System.Windows.Forms.Button();
-            this.btnPersonalTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoadTable
             // 
-            this.btnLoadTable.Location = new System.Drawing.Point(430, 25);
+            this.btnLoadTable.Location = new System.Drawing.Point(202, 16);
             this.btnLoadTable.Name = "btnLoadTable";
             this.btnLoadTable.Size = new System.Drawing.Size(149, 36);
             this.btnLoadTable.TabIndex = 0;
@@ -51,14 +49,14 @@
             // dgvShowData
             // 
             this.dgvShowData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowData.Location = new System.Drawing.Point(12, 82);
+            this.dgvShowData.Location = new System.Drawing.Point(12, 73);
             this.dgvShowData.Name = "dgvShowData";
-            this.dgvShowData.Size = new System.Drawing.Size(943, 348);
+            this.dgvShowData.Size = new System.Drawing.Size(943, 393);
             this.dgvShowData.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(724, 472);
+            this.btnSave.Location = new System.Drawing.Point(736, 16);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(167, 45);
             this.btnSave.TabIndex = 2;
@@ -69,9 +67,9 @@
             // cbTables
             // 
             this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(263, 34);
+            this.cbTables.Location = new System.Drawing.Point(12, 25);
             this.cbTables.Name = "cbTables";
-            this.cbTables.Size = new System.Drawing.Size(128, 21);
+            this.cbTables.Size = new System.Drawing.Size(175, 21);
             this.cbTables.TabIndex = 3;
             // 
             // btnTestVisitor
@@ -84,22 +82,11 @@
             this.btnTestVisitor.UseVisualStyleBackColor = true;
             this.btnTestVisitor.Click += new System.EventHandler(this.btnTestVisitor_Click);
             // 
-            // btnVisitorEditTest
-            // 
-            this.btnVisitorEditTest.Location = new System.Drawing.Point(176, 481);
-            this.btnVisitorEditTest.Name = "btnVisitorEditTest";
-            this.btnVisitorEditTest.Size = new System.Drawing.Size(149, 36);
-            this.btnVisitorEditTest.TabIndex = 5;
-            this.btnVisitorEditTest.Text = "Visitor Test";
-            this.btnVisitorEditTest.UseVisualStyleBackColor = true;
-            this.btnVisitorEditTest.Click += new System.EventHandler(this.btnVisitorEditTest_Click);
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 541);
-            this.Controls.Add(this.btnVisitorEditTest);
             this.Controls.Add(this.btnTestVisitor);
             this.Controls.Add(this.cbTables);
             this.Controls.Add(this.btnSave);
@@ -120,7 +107,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
         private System.Windows.Forms.Button btnTestVisitor;
-        private System.Windows.Forms.Button btnVisitorEditTest;
     }
 }
 

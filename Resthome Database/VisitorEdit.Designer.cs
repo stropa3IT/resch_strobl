@@ -39,7 +39,6 @@
             this.btnLoadLastIndex = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -49,18 +48,18 @@
             this.LastName.AutoSize = true;
             this.LastName.Location = new System.Drawing.Point(70, 37);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(55, 13);
+            this.LastName.Size = new System.Drawing.Size(59, 13);
             this.LastName.TabIndex = 19;
-            this.LastName.Text = "LastName";
+            this.LastName.Text = "Nachname";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(82, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Age";
+            this.label3.Text = "Alter";
             // 
             // Day
             // 
@@ -69,16 +68,16 @@
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(26, 13);
             this.Day.TabIndex = 17;
-            this.Day.Text = "Day";
+            this.Day.Text = "Tag";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(73, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Firstname";
+            this.label1.Text = "Vorname";
             // 
             // txtDay
             // 
@@ -110,21 +109,21 @@
             // 
             // btnLoadLastIndex
             // 
-            this.btnLoadLastIndex.Location = new System.Drawing.Point(34, 115);
+            this.btnLoadLastIndex.Location = new System.Drawing.Point(12, 115);
             this.btnLoadLastIndex.Name = "btnLoadLastIndex";
             this.btnLoadLastIndex.Size = new System.Drawing.Size(120, 23);
             this.btnLoadLastIndex.TabIndex = 11;
-            this.btnLoadLastIndex.Text = "Load Last Index";
+            this.btnLoadLastIndex.Text = "Lade letzten Index";
             this.btnLoadLastIndex.UseVisualStyleBackColor = true;
             this.btnLoadLastIndex.Click += new System.EventHandler(this.btnLoadLastIndex_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(172, 115);
+            this.btnEdit.Location = new System.Drawing.Point(147, 115);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(120, 23);
             this.btnEdit.TabIndex = 20;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Bearbeiten";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
@@ -135,16 +134,6 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 21;
-            // 
-            // txtDelete
-            // 
-            this.txtDelete.Location = new System.Drawing.Point(299, 112);
-            this.txtDelete.Name = "txtDelete";
-            this.txtDelete.Size = new System.Drawing.Size(75, 23);
-            this.txtDelete.TabIndex = 22;
-            this.txtDelete.Text = "Delete";
-            this.txtDelete.UseVisualStyleBackColor = true;
-            this.txtDelete.Click += new System.EventHandler(this.txtDelete_Click);
             // 
             // label2
             // 
@@ -157,9 +146,9 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(380, 86);
+            this.btnGoBack.Location = new System.Drawing.Point(273, 116);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(87, 49);
+            this.btnGoBack.Size = new System.Drawing.Size(135, 22);
             this.btnGoBack.TabIndex = 24;
             this.btnGoBack.Text = "Zurück zur Übersicht";
             this.btnGoBack.UseVisualStyleBackColor = true;
@@ -169,10 +158,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 147);
+            this.ClientSize = new System.Drawing.Size(428, 148);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDelete);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.LastName);
@@ -204,7 +192,6 @@
         private System.Windows.Forms.Button btnLoadLastIndex;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Button txtDelete;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGoBack;
     }

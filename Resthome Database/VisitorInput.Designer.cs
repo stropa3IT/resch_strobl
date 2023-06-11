@@ -43,7 +43,7 @@
             // 
             this.btnCreateVisitor.Location = new System.Drawing.Point(70, 115);
             this.btnCreateVisitor.Name = "btnCreateVisitor";
-            this.btnCreateVisitor.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateVisitor.Size = new System.Drawing.Size(100, 23);
             this.btnCreateVisitor.TabIndex = 0;
             this.btnCreateVisitor.Text = "Create Visitor";
             this.btnCreateVisitor.UseVisualStyleBackColor = true;

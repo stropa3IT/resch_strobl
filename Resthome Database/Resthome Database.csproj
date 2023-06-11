@@ -71,6 +71,12 @@
     <Compile Include="PersonalForm.Designer.cs">
       <DependentUpon>PersonalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisitorDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitorDelete.Designer.cs">
+      <DependentUpon>VisitorDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisitorEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="PersonalForm.resx">
       <DependentUpon>PersonalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitorDelete.resx">
+      <DependentUpon>VisitorDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VisitorEdit.resx">
       <DependentUpon>VisitorEdit.cs</DependentUpon>
