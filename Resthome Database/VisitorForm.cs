@@ -147,6 +147,7 @@ namespace Resthome_Database
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
                     dgvShowData.DataSource = dataTable;
+                    dgvShowData.ReadOnly = true; 
                     conn.Close();
                 }
                 else
@@ -167,7 +168,6 @@ namespace Resthome_Database
                 VisitorInput visitorInput = new VisitorInput();
                 visitorInput.ShowDialog();
                 btnCreate.Enabled = false;
-                btnEdit.Enabled = false;
             }
             catch
             {
@@ -181,6 +181,7 @@ namespace Resthome_Database
             visitorDelete.ShowDialog();
             btnCreate.Enabled = false;
             btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
         }
 
         private void btnEdit_Click_1(object sender, EventArgs e)
@@ -190,7 +191,6 @@ namespace Resthome_Database
                 VisitorEdit visitorEdit = new VisitorEdit();
                 visitorEdit.ShowDialog();
                 btnCreate.Enabled = false;
-                btnDelete.Enabled = false;
             }
             catch
             {

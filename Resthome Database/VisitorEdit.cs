@@ -76,32 +76,6 @@ namespace Resthome_Database
             }
         }
 
-        private void txtDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Close();
-                conn.Open();
-                cmmd.CommandText = "DELETE FROM Visitor WHERE ID = " + txtID.Text + ";";
-                cmmd.ExecuteNonQuery();
-                btnEdit.Enabled = false;
-                btnLoadLastIndex.Enabled = false;
-                conn.Close();
-                this.Visible = false;
-                FormVisitor formVisitor = new FormVisitor();
-                formVisitor.ShowDialog();
-                this.Close();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Sie müssen zuerst auf 'Lade letzten Index' klicken, bevor sie etwas bearbeiten können!");
-            }
-            catch (System.Exception)
-            {
-                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
-            }
-        }
-
         private void btnGoBack_Click(object sender, EventArgs e)
         {
             this.Visible = false;    
