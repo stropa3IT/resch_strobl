@@ -176,6 +176,15 @@ namespace Resthome_Database
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("one");
+                DataRow dr = dt.NewRow();
+                dr["one"] = "not editable";
+                dt.Rows.Add(dr);
+                DataRow dr1 = dt.NewRow();
+                dr1["one"] = "editable";
+                dt.Rows.Add(dr1);
+                dgvShowData.DataSource = dt;
                 //With SqlBulk you can add, edit, delete ... data from your datagridview and it copies the items to your datatable
                 string chhtable = (string)cbTables.SelectedItem;
                 cmmd.CommandText = "Truncate table Visitor";
