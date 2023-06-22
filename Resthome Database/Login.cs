@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Resthome_Database
 {
-    public partial class Admin : Form
+    public partial class Login : Form
     {
-        public Admin()
+        public Login()
         {
             InitializeComponent();
         }
