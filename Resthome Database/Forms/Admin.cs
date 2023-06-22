@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Resthome_Database
 {
-    public partial class FormAdmin : Login
+    public partial class FormAdmin : Form
     {
         public static string databasen = "Resthome";
         public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true;");
@@ -21,20 +21,31 @@ namespace Resthome_Database
         public FormAdmin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.White;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (CheckForDatabase(conn, databasen))
+            try
             {
-                cbTables.Items.Add("Pensioner");
-                cbTables.Items.Add("Personal");
-                cbTables.Items.Add("Visitor"); 
+                if (CheckForDatabase(conn, databasen))
+                {
+                    cbTables.Items.Add("Pensioner");
+                    cbTables.Items.Add("Personal");
+                    cbTables.Items.Add("Visitor");
+                }
+                else
+                {
+                    CreateDabase(conn, cmmd, databasen);
+                    CreateTable(conn, cmmd, databasen);
+                }
             }
-            else
+            catch (Exception) 
             {
-                CreateDabase(conn, cmmd, databasen);
-                CreateTable(conn, cmmd, databasen);
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
 
@@ -51,10 +62,9 @@ namespace Resthome_Database
 
         }
 
-
-
         public static bool CheckForDatabase(SqlConnection conn, string db)
         {
+            //checking if database exists with the select command where we look at the database table, where all db's are in and then just see if it is in there
                 SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
                 conn.Open();    
                 return comm.ExecuteScalar() != DBNull.Value;        
@@ -64,6 +74,7 @@ namespace Resthome_Database
         {
             try
             {
+                //here we just create the database with the create statement 
                 Console.WriteLine("Database does not exist");
                 conn.Close();
                 conn.Open();
@@ -73,13 +84,14 @@ namespace Resthome_Database
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
         static void CreateTable(SqlConnection conn, SqlCommand cmmd, string databasen)
         {
             try
             {
+                //normal creation commands
                 conn.Close();
                 conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
                 conn.Open();
@@ -95,17 +107,19 @@ namespace Resthome_Database
 
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
         private void btnLoadTable_Click(object sender, EventArgs e)
         {
             try
             {
+                //here we just do a usual select command, and then we just create an data table, which has included all of our
+                //sources and we'll just add it to the datagridview's datasource, so just to the datagrid.
                 string Query;
                 string chtable = (string)cbTables.SelectedItem;
                 Query = "SELECT * FROM " + chtable;
-                cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
+                cmmd.CommandText = Query;//here we could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                 conn.Close();
                 conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
                 conn.Open();
@@ -118,7 +132,7 @@ namespace Resthome_Database
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
 
@@ -139,14 +153,23 @@ namespace Resthome_Database
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
 
         private void btnTestVisitor_Click(object sender, EventArgs e)
         {
-            FormVisitor formVisitor = new FormVisitor();
-            formVisitor.Show();
+            try
+            {
+                this.Visible = false;
+                FormVisitor formVisitor = new FormVisitor();
+                formVisitor.ShowDialog();
+                this.Close();
+            }
+            catch(Exception) 
+            {
+                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
+            }
         }
     }
 }

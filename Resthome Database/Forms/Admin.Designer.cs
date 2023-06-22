@@ -38,7 +38,7 @@
             // 
             // btnLoadTable
             // 
-            this.btnLoadTable.Location = new System.Drawing.Point(430, 25);
+            this.btnLoadTable.Location = new System.Drawing.Point(202, 16);
             this.btnLoadTable.Name = "btnLoadTable";
             this.btnLoadTable.Size = new System.Drawing.Size(149, 36);
             this.btnLoadTable.TabIndex = 0;
@@ -49,14 +49,14 @@
             // dgvShowData
             // 
             this.dgvShowData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowData.Location = new System.Drawing.Point(12, 82);
+            this.dgvShowData.Location = new System.Drawing.Point(12, 73);
             this.dgvShowData.Name = "dgvShowData";
-            this.dgvShowData.Size = new System.Drawing.Size(943, 348);
+            this.dgvShowData.Size = new System.Drawing.Size(943, 393);
             this.dgvShowData.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(724, 472);
+            this.btnSave.Location = new System.Drawing.Point(736, 16);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(167, 45);
             this.btnSave.TabIndex = 2;
@@ -67,9 +67,9 @@
             // cbTables
             // 
             this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(263, 34);
+            this.cbTables.Location = new System.Drawing.Point(12, 25);
             this.cbTables.Name = "cbTables";
-            this.cbTables.Size = new System.Drawing.Size(128, 21);
+            this.cbTables.Size = new System.Drawing.Size(175, 21);
             this.cbTables.TabIndex = 3;
             // 
             // btnTestVisitor

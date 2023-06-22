@@ -30,16 +30,18 @@
         {
             this.btnLoadTable = new System.Windows.Forms.Button();
             this.dgvShowData = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoadTable
             // 
-            this.btnLoadTable.Location = new System.Drawing.Point(430, 25);
+            this.btnLoadTable.Location = new System.Drawing.Point(724, 18);
             this.btnLoadTable.Name = "btnLoadTable";
-            this.btnLoadTable.Size = new System.Drawing.Size(149, 36);
+            this.btnLoadTable.Size = new System.Drawing.Size(148, 47);
             this.btnLoadTable.TabIndex = 0;
             this.btnLoadTable.Text = "Load Table";
             this.btnLoadTable.UseVisualStyleBackColor = true;
@@ -47,39 +49,61 @@
             // 
             // dgvShowData
             // 
+            this.dgvShowData.AllowUserToAddRows = false;
+            this.dgvShowData.AllowUserToDeleteRows = false;
             this.dgvShowData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowData.Location = new System.Drawing.Point(12, 82);
+            this.dgvShowData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvShowData.Location = new System.Drawing.Point(12, 92);
             this.dgvShowData.Name = "dgvShowData";
-            this.dgvShowData.Size = new System.Drawing.Size(943, 348);
+            this.dgvShowData.ReadOnly = true;
+            this.dgvShowData.Size = new System.Drawing.Size(1051, 391);
             this.dgvShowData.TabIndex = 1;
-            this.dgvShowData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowData_CellContentClick);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(724, 472);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(167, 45);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbTables
             // 
+            this.cbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(263, 34);
+            this.cbTables.Location = new System.Drawing.Point(528, 32);
             this.cbTables.Name = "cbTables";
-            this.cbTables.Size = new System.Drawing.Size(128, 21);
+            this.cbTables.Size = new System.Drawing.Size(167, 21);
             this.cbTables.TabIndex = 3;
-            this.cbTables.SelectedIndexChanged += new System.EventHandler(this.cbTables_SelectedIndexChanged);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(139, 18);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(160, 47);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Datensatz bearbeiten";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(12, 18);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(121, 47);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "Datensatz erstellen";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(305, 18);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(160, 47);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Datensatz löschen";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 541);
+            this.ClientSize = new System.Drawing.Size(1075, 495);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cbTables);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvShowData);
             this.Controls.Add(this.btnLoadTable);
             this.Name = "FormVisitor";
@@ -94,8 +118,10 @@
 
         private System.Windows.Forms.Button btnLoadTable;
         private System.Windows.Forms.DataGridView dgvShowData;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
