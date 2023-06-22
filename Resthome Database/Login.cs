@@ -15,6 +15,7 @@ namespace Resthome_Database
         public Login()
         {
             InitializeComponent();
+            asdfsdf
         }
     }
 }
