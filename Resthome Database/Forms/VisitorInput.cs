@@ -44,11 +44,12 @@ namespace Resthome_Database
             }
             catch(FormatException) 
             {
-                MessageBox.Show("Sie haben das falsche Format eingegeben, geben Sie nächstes Mal das Datums Format so ein: dd.mm.yyyy hh:mm:ss und bei Alter (Age) dürfen sie nur Zahlen eingeben!");
+                MessageBox.Show("Sie haben das falsche Format eingegeben, geben Sie nächstes Mal das Datums Format so ein: yyyy-mm-dd (hh:mm:ss) und bei Alter (Age) dürfen sie nur Zahlen eingeben!");
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
     }
