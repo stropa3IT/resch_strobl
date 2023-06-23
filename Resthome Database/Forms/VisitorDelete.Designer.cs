@@ -109,6 +109,7 @@
             this.txtFirstname.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtFirstname.Location = new System.Drawing.Point(118, 24);
             this.txtFirstname.Name = "txtFirstname";
+            this.txtFirstname.ReadOnly = true;
             this.txtFirstname.Size = new System.Drawing.Size(279, 20);
             this.txtFirstname.TabIndex = 6;
             // 
@@ -117,6 +118,7 @@
             this.txtDay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtDay.Location = new System.Drawing.Point(118, 102);
             this.txtDay.Name = "txtDay";
+            this.txtDay.ReadOnly = true;
             this.txtDay.Size = new System.Drawing.Size(279, 20);
             this.txtDay.TabIndex = 7;
             // 
@@ -125,6 +127,7 @@
             this.txtAge.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtAge.Location = new System.Drawing.Point(118, 76);
             this.txtAge.Name = "txtAge";
+            this.txtAge.ReadOnly = true;
             this.txtAge.Size = new System.Drawing.Size(279, 20);
             this.txtAge.TabIndex = 8;
             // 
@@ -133,6 +136,7 @@
             this.txtLastName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLastName.Location = new System.Drawing.Point(118, 50);
             this.txtLastName.Name = "txtLastName";
+            this.txtLastName.ReadOnly = true;
             this.txtLastName.Size = new System.Drawing.Size(279, 20);
             this.txtLastName.TabIndex = 9;
             // 
@@ -141,6 +145,7 @@
             this.txtID.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtID.Location = new System.Drawing.Point(442, 28);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(85, 20);
             this.txtID.TabIndex = 10;
             // 

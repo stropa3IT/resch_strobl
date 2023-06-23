@@ -32,7 +32,6 @@
             this.dgvShowData = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
             this.cbTables = new System.Windows.Forms.ComboBox();
-            this.btnTestVisitor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,23 +74,12 @@
             this.cbTables.Size = new System.Drawing.Size(175, 21);
             this.cbTables.TabIndex = 3;
             // 
-            // btnTestVisitor
-            // 
-            this.btnTestVisitor.Location = new System.Drawing.Point(21, 481);
-            this.btnTestVisitor.Name = "btnTestVisitor";
-            this.btnTestVisitor.Size = new System.Drawing.Size(149, 36);
-            this.btnTestVisitor.TabIndex = 4;
-            this.btnTestVisitor.Text = "Visitor Test";
-            this.btnTestVisitor.UseVisualStyleBackColor = true;
-            this.btnTestVisitor.Click += new System.EventHandler(this.btnTestVisitor_Click);
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(967, 541);
-            this.Controls.Add(this.btnTestVisitor);
             this.Controls.Add(this.cbTables);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvShowData);
@@ -110,7 +98,6 @@
         private System.Windows.Forms.DataGridView dgvShowData;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbTables;
-        private System.Windows.Forms.Button btnTestVisitor;
     }
 }
 

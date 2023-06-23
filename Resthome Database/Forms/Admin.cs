@@ -157,22 +157,6 @@ namespace Resthome_Database
                 MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
             }
         }
-
-        private void btnTestVisitor_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //here we open a new form and close the old one
-                this.Visible = false;
-                FormVisitor formVisitor = new FormVisitor();
-                formVisitor.ShowDialog();
-                this.Close();
-            }
-            catch(Exception) 
-            {
-                MessageBox.Show("Etwas ist schiefgegangen, nur wissen wir nicht was!");
-            }
-        }
     }
 }
 
