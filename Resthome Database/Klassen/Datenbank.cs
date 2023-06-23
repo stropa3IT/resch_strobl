@@ -42,7 +42,7 @@ namespace Resthome_Database.Klassen
                     ExecuteNQuery(@"CREATE TABLE [dbo].[Visitor](ID INT NOT NULL PRIMARY KEY IDENTITY(1,1), [Firstname] VARCHAR(50) NULL, [LastName] VARCHAR(50) NULL, [Age] INT NOT NULL, [Day] DATETIME, Username VARCHAR(50), password VARCHAR(50))");
 
                     ExecuteNQuery(@"INSERT INTO  [dbo].Personal ([Firstname], LastName, Age, IsAdmin, Username, password) 
-VALUES ('Admin', 'Admin',0, 'true', 'Admin', 'Admin' )");
+VALUES ('Admin', 'Admin',0, 'true', 'Admin', 'Admin')");
                     ExecuteNQuery(@"INSERT INTO  [dbo].Personal ([Firstname], LastName, Age, IsAdmin, Username, password) 
 VALUES ('Demo', 'Demo', 0, 'false', 'Demo', 'Demo')");
 
