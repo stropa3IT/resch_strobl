@@ -19,7 +19,7 @@ namespace Resthome_Database
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //he code validates the user's login credentials and performs different actions based on the user type and administrative privileges.
+            //the code validates the user's login credentials and performs different actions based on the user type and administrative privileges.
             if (User.login(txt_username.Text, txt_password.Text)) 
             {
                 if(User.UType == User.UserType.Employee)
