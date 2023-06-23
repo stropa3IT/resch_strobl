@@ -15,13 +15,16 @@ namespace Resthome_Database
 {
     public partial class VisitorInput : Form
     {
-        public static string databasen = "Resthome";
-        public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true; database =  " + databasen);
-        public static SqlCommand cmmd = new SqlCommand("", conn);
-
+        
         public VisitorInput()
         {
             InitializeComponent();
+            //settings to put the windows forms window into the middle of the screen
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.White;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            
         }
 
         private void VisitorInput_Load(object sender, EventArgs e)
@@ -31,13 +34,12 @@ namespace Resthome_Database
 
         private void btnCreateVisitor_Click(object sender, EventArgs e)
         {
+            //method to create the visiotor by an sql statement
+            Klassen.Datenbank db = new Klassen.Datenbank();
             try
             {
-                conn.Close();
-                conn.Open();
-                cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '" + txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');";
-                cmmd.ExecuteNonQuery();
-                conn.Close();
+                db.ExecuteNQuery("INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ( '" + txtFirstname.Text + "', '" + txtLastName.Text + "', " + Int32.Parse(txtAge.Text) + ", '" + txtDay.Text + "');");
+                
                 this.Visible = false; 
             }
             catch(FormatException) 

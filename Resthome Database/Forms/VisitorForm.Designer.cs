@@ -39,12 +39,13 @@
             // 
             // btnLoadTable
             // 
-            this.btnLoadTable.Location = new System.Drawing.Point(725, 18);
+            this.btnLoadTable.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLoadTable.Location = new System.Drawing.Point(724, 18);
             this.btnLoadTable.Name = "btnLoadTable";
             this.btnLoadTable.Size = new System.Drawing.Size(148, 47);
             this.btnLoadTable.TabIndex = 0;
-            this.btnLoadTable.Text = "Load Table";
-            this.btnLoadTable.UseVisualStyleBackColor = true;
+            this.btnLoadTable.Text = "Tabelle laden";
+            this.btnLoadTable.UseVisualStyleBackColor = false;
             this.btnLoadTable.Click += new System.EventHandler(this.btnLoadTable_Click);
             // 
             // dgvShowData
@@ -61,44 +62,52 @@
             // 
             // cbTables
             // 
+            this.cbTables.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.cbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(552, 32);
+            this.cbTables.Location = new System.Drawing.Point(528, 32);
             this.cbTables.Name = "cbTables";
             this.cbTables.Size = new System.Drawing.Size(167, 21);
             this.cbTables.TabIndex = 3;
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEdit.Location = new System.Drawing.Point(139, 18);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(160, 47);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Datensatz bearbeiten";
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // btnCreate
             // 
+            this.btnCreate.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCreate.Location = new System.Drawing.Point(12, 18);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(121, 47);
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Datensatz erstellen";
+            this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDelete.Location = new System.Drawing.Point(305, 18);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(160, 47);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Datensatz löschen";
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1075, 495);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCreate);

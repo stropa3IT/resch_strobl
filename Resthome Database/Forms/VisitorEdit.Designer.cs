@@ -46,6 +46,7 @@
             // LastName
             // 
             this.LastName.AutoSize = true;
+            this.LastName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.LastName.Location = new System.Drawing.Point(70, 37);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(59, 13);
@@ -55,6 +56,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(82, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
@@ -64,6 +66,7 @@
             // Day
             // 
             this.Day.AutoSize = true;
+            this.Day.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Day.Location = new System.Drawing.Point(82, 89);
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(26, 13);
@@ -73,6 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(73, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
@@ -81,6 +85,7 @@
             // 
             // txtDay
             // 
+            this.txtDay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtDay.Location = new System.Drawing.Point(131, 89);
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(100, 20);
@@ -88,6 +93,7 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLastName.Location = new System.Drawing.Point(131, 37);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
@@ -95,6 +101,7 @@
             // 
             // txtAge
             // 
+            this.txtAge.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtAge.Location = new System.Drawing.Point(131, 63);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 20);
@@ -102,6 +109,7 @@
             // 
             // txtFirstname
             // 
+            this.txtFirstname.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtFirstname.Location = new System.Drawing.Point(131, 11);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(100, 20);
@@ -109,26 +117,29 @@
             // 
             // btnLoadLastIndex
             // 
+            this.btnLoadLastIndex.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLoadLastIndex.Location = new System.Drawing.Point(12, 115);
             this.btnLoadLastIndex.Name = "btnLoadLastIndex";
             this.btnLoadLastIndex.Size = new System.Drawing.Size(120, 23);
             this.btnLoadLastIndex.TabIndex = 11;
             this.btnLoadLastIndex.Text = "Lade letzten Index";
-            this.btnLoadLastIndex.UseVisualStyleBackColor = true;
+            this.btnLoadLastIndex.UseVisualStyleBackColor = false;
             this.btnLoadLastIndex.Click += new System.EventHandler(this.btnLoadLastIndex_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEdit.Location = new System.Drawing.Point(147, 115);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(120, 23);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "Bearbeiten";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // txtID
             // 
+            this.txtID.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtID.Location = new System.Drawing.Point(308, 12);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
@@ -138,6 +149,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(284, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 13);
@@ -146,18 +158,20 @@
             // 
             // btnGoBack
             // 
+            this.btnGoBack.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnGoBack.Location = new System.Drawing.Point(273, 116);
             this.btnGoBack.Name = "btnGoBack";
             this.btnGoBack.Size = new System.Drawing.Size(135, 22);
             this.btnGoBack.TabIndex = 24;
             this.btnGoBack.Text = "Zurück zur Übersicht";
-            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.UseVisualStyleBackColor = false;
             this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
             // 
             // VisitorEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(428, 148);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.label2);

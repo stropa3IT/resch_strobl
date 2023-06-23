@@ -16,7 +16,7 @@ namespace Resthome_Database
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAdmin());
+            Application.Run(new Login());
         }
     }
 }

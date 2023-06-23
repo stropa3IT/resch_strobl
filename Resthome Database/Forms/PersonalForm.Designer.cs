@@ -49,6 +49,7 @@
             // 
             // cbTables
             // 
+            this.cbTables.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.cbTables.FormattingEnabled = true;
             this.cbTables.Location = new System.Drawing.Point(27, 12);
             this.cbTables.Name = "cbTables";
@@ -57,28 +58,31 @@
             // 
             // btnLoadTable
             // 
+            this.btnLoadTable.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLoadTable.Location = new System.Drawing.Point(235, 5);
             this.btnLoadTable.Name = "btnLoadTable";
             this.btnLoadTable.Size = new System.Drawing.Size(105, 33);
             this.btnLoadTable.TabIndex = 5;
-            this.btnLoadTable.Text = "Load Table";
-            this.btnLoadTable.UseVisualStyleBackColor = true;
+            this.btnLoadTable.Text = "Tabelle laden";
+            this.btnLoadTable.UseVisualStyleBackColor = false;
             this.btnLoadTable.Click += new System.EventHandler(this.btnLoadTable_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.Location = new System.Drawing.Point(875, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(220, 33);
             this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save Table";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Text = "Tabelle sichern";
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1119, 578);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoadTable);

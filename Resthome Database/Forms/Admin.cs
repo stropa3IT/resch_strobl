@@ -21,12 +21,18 @@ namespace Resthome_Database
         public FormAdmin()
         {
             InitializeComponent();
+            //settings to put the windows forms window into the middle of the screen
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.White;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
+                //Checking if the Database exists, if not we creating one and also tables, if it does exist we just add the different names too the combobox.
                 if (CheckForDatabase(conn, databasen))
                 {
                     cbTables.Items.Add("Pensioner");
@@ -35,7 +41,7 @@ namespace Resthome_Database
                 }
                 else
                 {
-                    CreateDabase(conn, cmmd, databasen);
+                    CreateDatabase(conn, cmmd, databasen);
                     CreateTable(conn, cmmd, databasen);
                 }
             }
@@ -47,7 +53,6 @@ namespace Resthome_Database
 
         private void Connect()
         {
-
             string connectionString = @"Data Source=MyServerName;Initial Catalog=MyDbName; User ID=Admin; Password=Root";
 
             SqlConnection connection = new SqlConnection(connectionString);
@@ -66,7 +71,7 @@ namespace Resthome_Database
                 return comm.ExecuteScalar() != DBNull.Value;        
         }
 
-        static void CreateDabase(SqlConnection conn, SqlCommand cmmd, string databasen)
+        static void CreateDatabase(SqlConnection conn, SqlCommand cmmd, string databasen)
         {
             try
             {
@@ -87,7 +92,7 @@ namespace Resthome_Database
         {
             try
             {
-                //normal creation commands
+                //normal creation commands, which we use for creating our tables 'Pensioner', 'Personal' and 'Visitor'. 
                 conn.Close();
                 conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
                 conn.Open();
@@ -157,6 +162,7 @@ namespace Resthome_Database
         {
             try
             {
+                //here we open a new form and close the old one
                 this.Visible = false;
                 FormVisitor formVisitor = new FormVisitor();
                 formVisitor.ShowDialog();

@@ -41,16 +41,18 @@
             // 
             // btnCreateVisitor
             // 
+            this.btnCreateVisitor.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCreateVisitor.Location = new System.Drawing.Point(70, 115);
             this.btnCreateVisitor.Name = "btnCreateVisitor";
             this.btnCreateVisitor.Size = new System.Drawing.Size(100, 23);
             this.btnCreateVisitor.TabIndex = 0;
             this.btnCreateVisitor.Text = "Create Visitor";
-            this.btnCreateVisitor.UseVisualStyleBackColor = true;
+            this.btnCreateVisitor.UseVisualStyleBackColor = false;
             this.btnCreateVisitor.Click += new System.EventHandler(this.btnCreateVisitor_Click);
             // 
             // txtFirstname
             // 
+            this.txtFirstname.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtFirstname.Location = new System.Drawing.Point(70, 6);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(100, 20);
@@ -58,6 +60,7 @@
             // 
             // txtAge
             // 
+            this.txtAge.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtAge.Location = new System.Drawing.Point(70, 63);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 20);
@@ -65,6 +68,7 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLastName.Location = new System.Drawing.Point(70, 32);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
@@ -72,6 +76,7 @@
             // 
             // txtDay
             // 
+            this.txtDay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtDay.Location = new System.Drawing.Point(70, 89);
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(100, 20);
@@ -80,6 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
@@ -89,6 +95,7 @@
             // Day
             // 
             this.Day.AutoSize = true;
+            this.Day.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Day.Location = new System.Drawing.Point(21, 89);
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(26, 13);
@@ -98,6 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(21, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
@@ -107,6 +115,7 @@
             // LastName
             // 
             this.LastName.AutoSize = true;
+            this.LastName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.LastName.Location = new System.Drawing.Point(12, 35);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(55, 13);
@@ -117,7 +126,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 147);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(190, 153);
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Day);

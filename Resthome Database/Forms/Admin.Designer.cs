@@ -38,12 +38,13 @@
             // 
             // btnLoadTable
             // 
+            this.btnLoadTable.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLoadTable.Location = new System.Drawing.Point(202, 16);
             this.btnLoadTable.Name = "btnLoadTable";
             this.btnLoadTable.Size = new System.Drawing.Size(149, 36);
             this.btnLoadTable.TabIndex = 0;
             this.btnLoadTable.Text = "Load Table";
-            this.btnLoadTable.UseVisualStyleBackColor = true;
+            this.btnLoadTable.UseVisualStyleBackColor = false;
             this.btnLoadTable.Click += new System.EventHandler(this.btnLoadTable_Click);
             // 
             // dgvShowData
@@ -56,16 +57,18 @@
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.Location = new System.Drawing.Point(736, 16);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(167, 45);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbTables
             // 
+            this.cbTables.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.cbTables.FormattingEnabled = true;
             this.cbTables.Location = new System.Drawing.Point(12, 25);
             this.cbTables.Name = "cbTables";
@@ -86,6 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(967, 541);
             this.Controls.Add(this.btnTestVisitor);
             this.Controls.Add(this.cbTables);

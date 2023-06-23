@@ -2,52 +2,51 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Resthome_Database
 {
-    public partial class PersonalForm : Form
+    public partial class FormVisitor : Form
     {
-
         public static string databasen = "Resthome";
         public static SqlConnection conn = new SqlConnection("server = (localdb)\\MSSQLLocalDB; integrated security = true;");
         public static SqlCommand cmmd = new SqlCommand("", conn);
         DataTable dataTable;
 
-        public PersonalForm()
+        public FormVisitor()
         {
             InitializeComponent();
+            //settings to put the windows forms window into the middle of the screen
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.White;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            try
+            //here we check if the database already exists, if it does we just add our table names to the comboboxes. If it actualy does not exist we create a new database and then we create
+            //tables as well. 
+            if (CheckForDatabase(conn, databasen))
             {
-                //With SqlBulk you can add, edit, delete ... data from your datagridview and it copies the items to your datatable
-                string chhtable = (string)cbTables.SelectedItem;
-                cmmd.CommandText = "Truncate table Visitor";
-                conn.Close();
-                conn.Open();
-                cmmd.ExecuteNonQuery();
-                SqlBulkCopy copy = new SqlBulkCopy(conn);
-                copy.DestinationTableName = chhtable;
-                copy.WriteToServer(dataTable);
-                conn.Close();
+                cbTables.Items.Add("Pensioner");
+                cbTables.Items.Add("Personal");
+                cbTables.Items.Add("Visitor");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Something went wrong, please try something else");
+                CreateDatabase(conn, cmmd, databasen);
+                CreateTable(conn, cmmd, databasen);
             }
         }
 
         private void Connect()
         {
-
             string connectionString = @"Data Source=MyServerName;Initial Catalog=MyDbName; User ID=Admin; Password=Root";
 
             SqlConnection connection = new SqlConnection(connectionString);
@@ -55,18 +54,20 @@ namespace Resthome_Database
             connection.Open();
 
             connection.Close();
-
         }
 
         public static bool CheckForDatabase(SqlConnection conn, string db)
         {
-            SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
-            conn.Open();
-            return comm.ExecuteScalar() != DBNull.Value;
+            //here we check for the database, which we do with the select statement, we just look into the db_id table and then we just look if ours is included there
+                conn.Close();
+                SqlCommand comm = new SqlCommand($"SELECT db_id('{db}')", conn);
+                conn.Open();
+                return comm.ExecuteScalar() != DBNull.Value;
         }
 
-        static void CreateDabase(SqlConnection conn, SqlCommand cmmd, string databasen)
+        static void CreateDatabase(SqlConnection conn, SqlCommand cmmd, string databasen)
         {
+            //here we create our database with the normal create statment
             try
             {
                 Console.WriteLine("Database does not exist");
@@ -76,13 +77,14 @@ namespace Resthome_Database
                 cmmd.ExecuteNonQuery();
                 conn.Close();
             }
-            catch (Exception)
+            catch 
             {
                 MessageBox.Show("Something went wrong, please try something else");
             }
         }
         static void CreateTable(SqlConnection conn, SqlCommand cmmd, string databasen)
         {
+            //in this part of our programm we just create our normal tables with the create statement
             try
             {
                 conn.Close();
@@ -97,48 +99,27 @@ namespace Resthome_Database
                 sqlCommand.ExecuteNonQuery();
                 conn.Close();
             }
-
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong, please try something else");
+            catch
+            { 
+                MessageBox.Show("Something went wrong, please try something else"); 
             }
         }
 
-        private void PersonalForm_Load(object sender, EventArgs e)
-        {
-            if (CheckForDatabase(conn, databasen))
-            {
-                conn.Close();
-                conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
-                conn.Open();
-                cbTables.Items.Add("Pensioner");
-                cbTables.Items.Add("Personal");
-                cbTables.Items.Add("Visitor");
-                cmmd.CommandText = "INSERT INTO Visitor (Firstname, LastName, Age, Day) VALUES ('','','','')";
-                cmmd.ExecuteNonQuery();
-                cmmd.CommandText = "INSERT INTO Pensioner (Firstname, LastName, Age, Roomnumber, Carelevel) VALUES ('','','', '','')";
-                cmmd.ExecuteNonQuery();
-            }
-            else
-            {
-                CreateDabase(conn, cmmd, databasen);
-                CreateTable(conn, cmmd, databasen);
-            }
-        }
-
-        private void btnLoadTable_Click(object sender, EventArgs e)
-        {
+         private void btnLoadTable_Click(object sender, EventArgs e)
+         {
             try
             {
                 if (cbTables.SelectedItem.Equals("Personal"))
                 {
+                    //Here we just select every data of personal and then we just read it out and load it to our datagridview.
+                    //We have set ReadOnly to true because the Visitor should just read data. 
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
                     Query = "SELECT * FROM Personal" /*chtable*/;
+                    cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     conn.Close();
                     conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
                     conn.Open();
-                    cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     cmmd = new SqlCommand(Query, conn);
                     SqlDataReader dataReader = cmmd.ExecuteReader();
                     dataTable = new DataTable();
@@ -149,9 +130,12 @@ namespace Resthome_Database
                 }
                 else if (cbTables.SelectedItem.Equals("Pensioner"))
                 {
+                    //Here we just select every data of pensioner and then we just read it out and load it to our datagridview.
+                    //We have set ReadOnly to true because the Visitor should just read data. 
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
                     Query = "SELECT * FROM Pensioner" /*chtable*/;
+                    cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     conn.Close();
                     conn.ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; Integrated Security = true; Database = " + databasen;
                     conn.Open();
@@ -160,14 +144,15 @@ namespace Resthome_Database
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
                     dgvShowData.DataSource = dataTable;
-                    dgvShowData.ReadOnly = false;
+                    dgvShowData.ReadOnly = true;
                     conn.Close();
                 }
                 else if (cbTables.SelectedItem.Equals("Visitor"))
                 {
+                    //Here we just select every data of visitor and then we just read it out and load it to our datagridview.
+                    //We have set ReadOnly to true because the Visitor should just read data. 
                     string Query;
                     //string chtable = (string)cbTables.SelectedItem;
-
                     Query = "SELECT * FROM Visitor" /*chtable*/;
                     cmmd.CommandText = Query;//here I could do it with the index (dr[0]) for example! btn.name.ToString(); instead of ID
                     conn.Close();
@@ -178,7 +163,7 @@ namespace Resthome_Database
                     dataTable = new DataTable();
                     dataTable.Load(dataReader);
                     dgvShowData.DataSource = dataTable;
-                    dgvShowData.ReadOnly = false;
+                    dgvShowData.ReadOnly = true; 
                     conn.Close();
                 }
                 else
@@ -186,10 +171,52 @@ namespace Resthome_Database
                     MessageBox.Show("Something went wrong, please try something else");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show("Something went wrong, please try something else");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Something went wrong, please try something else");
+            }
+        } 
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            //here we get to the form where we can create our visitor
+            try
+            {
+                VisitorInput visitorInput = new VisitorInput();
+                visitorInput.ShowDialog();
+                btnCreate.Enabled = false;
+                btnEdit.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong, please try something else");
+            }
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            //the btnDelete_Click_1 method creates and shows a VisitorDelete form as a dialog, while the btnEdit_Click_1 method creates and shows a VisitorEdit form as a dialog.
+            //After closing the dialogs, the "Create" and "Delete" buttons are disabled.
+            VisitorDelete visitorDelete = new VisitorDelete();
+            visitorDelete.ShowDialog();
+            btnCreate.Enabled = false;
+            btnDelete.Enabled = false;
+        }
+
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+            //this code handles the button click event and shows the VisitorEdit form as a modal dialog.
+            //It disables the "Create" and "Delete" buttons after the dialog is closed.
+            try
+            {
+                VisitorEdit visitorEdit = new VisitorEdit();
+                visitorEdit.ShowDialog();
+                btnCreate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong, please try something else");
             }
         }
     }
